@@ -14,18 +14,18 @@ namespace News.Controllers
     {
         private readonly ApplicationDbContext _context;
         // adds the reference to the ReportsApiService context;
-        private readonly ReportsService _reportService;
+        private readonly ReportsService _reportsService;
         
         private readonly UserManager<ApplicationIdentity> _userManager;
 
 
         // add the API context (ReportsApiService reportApiService)
-        public ReportsController(ApplicationDbContext context, ReportsService reportService)
+        public ReportsController(ApplicationDbContext context, ReportsService reportsService)
         {
             _context = context;
 
             // report API
-            _reportService = reportService;
+            _reportsService = reportsService;
         }
 
         //public async Task<ActionResult<IEnumerable<Report>>> GetReport()
@@ -38,7 +38,7 @@ namespace News.Controllers
         {
             //return View(await _context.Report.ToListAsync());
 
-            return View(await _reportService.GetReportList() );
+            return View(await _reportsService.GetReportList() );
         }
 
         // GET: Reports/Details/5

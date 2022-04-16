@@ -6,6 +6,7 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 
 using News.Data.Migrations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace News.Services
 {
@@ -25,5 +26,15 @@ namespace News.Services
         {
             return await Client.GetFromJsonAsync<IEnumerable<Models.Report>>("/api/Reports");
         }
+
+        //[HttpPost]
+        //public async Task<ActionResult<Models.Report>> PostReport(Models.Report report)
+        //{
+        //    HttpResponseMessage response = awaitclient.PostAsJsonAsync("api/Department");
+        //    Client.Report.Add(report);
+        //    await _context.SaveChangesAsync();
+
+        //    return CreatedAtAction(nameof(PostReport), new { id = report.Id }, report);
+        //}
     }
 }

@@ -11,7 +11,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 // adds the services @services.ReportService and CommentsService
 builder.Services.AddHttpClient<ReportsService>();
 builder.Services.AddHttpClient<CommentsService>();
-builder.Services.AddHttpClient<SecondReportsService>();
+//builder.Services.AddHttpClient<SecondReportsService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));

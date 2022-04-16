@@ -28,7 +28,7 @@ namespace News.Models
         public DateTime CreatedDate { get; set; }
 
         [DisplayName("Last Modified")]
-        public DateTime LastUpdatedDate { get; set; }
+        public DateTime? LastUpdatedDate { get; set; }
         [Required]
         public string? Category { get; set; }
         //public SelectList? Category { get; set; }
