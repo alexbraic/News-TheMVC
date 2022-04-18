@@ -270,3 +270,16 @@ G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\zh-Hans\Micros
 G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\runtimes\win-arm\lib\net6.0\dotnet-aspnet-codegenerator-design.exe
 G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\runtimes\win-arm64\lib\net6.0\dotnet-aspnet-codegenerator-design.exe
+G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\Microsoft.OpenApi.dll
+G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\System.Web.Mvc.dll
+G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\System.Web.Razor.dll
+G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\System.Web.Helpers.dll
+G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\System.Web.WebPages.dll
+G:\Alex_Learn\DBS\SemFour\Challenges\Repeat\News\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll

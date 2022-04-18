@@ -11,7 +11,6 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 // adds the services @services.ReportService and CommentsService
 builder.Services.AddHttpClient<ReportsService>();
 builder.Services.AddHttpClient<CommentsService>();
-//builder.Services.AddHttpClient<SecondReportsService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
@@ -43,6 +42,11 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "postReport",
+    pattern: "api/Reports",
+    defaults: new { controller = "Reports", action = "Create" });
 
 app.MapControllerRoute(
     name: "default",

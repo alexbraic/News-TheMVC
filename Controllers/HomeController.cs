@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using News.Models;
+using Newtonsoft.Json;
 using System.Diagnostics;
 
 namespace News.Controllers
@@ -13,7 +14,13 @@ namespace News.Controllers
             _logger = logger;
         }
 
+
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult ReportComments()
         {
             return View();
         }

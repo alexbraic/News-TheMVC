@@ -7,41 +7,40 @@ using News.Data;
 using News.Models;
 using News.Services;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
 
 namespace News.Controllers
 {
     public class ReportsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        // adds the reference to the ReportsApiService context;
         private readonly ReportsService _reportsService;
-        
         private readonly UserManager<ApplicationIdentity> _userManager;
 
 
         // add the API context (ReportsApiService reportApiService)
-        public ReportsController(ApplicationDbContext context, ReportsService reportsService)
+        public ReportsController(ApplicationDbContext context, ReportsService reportsService /*, UserManager<ApplicationIdentity> userManager*/)
         {
             _context = context;
 
             // report API
             _reportsService = reportsService;
+            //_userManager = userManager;
         }
 
-        //public async Task<ActionResult<IEnumerable<Report>>> GetReport()
-        //{
-        //    return await _context.Report.ToListAsync();
-        //}
 
         // GET: Reports
         public async Task<IActionResult> Index()
         {
             //return View(await _context.Report.ToListAsync());
 
-            return View(await _reportsService.GetReportList() );
+            return View(await _reportsService.GetReportList());
         }
 
         // GET: Reports/Details/5
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -56,6 +55,7 @@ namespace News.Controllers
                 return NotFound();
             }
 
+            // ---------------------------------------------
             //get the movieActors model
             //var movieActors = new MovieActors();
 
@@ -73,28 +73,42 @@ namespace News.Controllers
         {
             return View();
         }
-
+//--------------------------------------------------------------------------------------------------------------------
         // POST: Reports/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        // Removed LastUpdatedDate from Create, as it is not needed
         public async Task<IActionResult> Create([Bind("Id,ReportName,Description,Body,CreatedBy,CreatedDate,Category")] Report report)
         {
-            
-            if (ModelState.IsValid)
+
+            using (var client = new HttpClient())
             {
-                //var userID = _userManager.GetUserId(HttpContent.User);
+                client.BaseAddress = new Uri("http://localhost:7290/");
+                var uri = client.BaseAddress;
 
-                //report.CreatedBy = userID;
+                var response = await client.PostAsJsonAsync(uri, report);
+                if (response.IsSuccessStatusCode)
+                {
 
-                _context.Add(report);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                    return RedirectToAction("Index");
+                }
+                //return View("Error");
+                return BadRequest();
             }
-            return View(report);
         }
+
+        //if (ModelState.IsValid)
+        //{
+
+        //    _context.Add(report);
+        //    await _context.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
+        //return View(report);
+    //}
+
+    
 
         // GET: Reports/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -169,7 +183,7 @@ namespace News.Controllers
             var comments = await _context.Comment.ToListAsync();
 
             reportComments.Report = report;
-            reportComments.Comments = comments;
+            reportComments.Comment = comments;
 
             return View(reportComments);
         }
